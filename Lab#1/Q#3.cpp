@@ -8,15 +8,11 @@ class MedianFinder
 private:
     vector<int> nums;
 public:
-
-    MedianFinder()
-    {
-    }
+    MedianFinder(){}
 
     void addNum(int num)
     {
-        nums.push_back(num);
-    }
+        nums.push_back(num);}
 
     double findMedian()
     {
@@ -24,26 +20,21 @@ public:
 
         int n = nums.size();
 
-        if (n % 2 == 1)
-            return nums[n / 2];
-        }
-        else
-        {
+        if (n % 2 == 1) return nums[n / 2];
+       
+        else{
             return (nums[n / 2 - 1] + nums[n / 2]) / 2.0;
-        }
-    }
+        }}
+    
 };
 
 int main()
 {
     MedianFinder medianFinder;
-
     medianFinder.addNum(1);
     medianFinder.addNum(2);
-
     cout << "Median = " << medianFinder.findMedian() << endl;
     medianFinder.addNum(3);
     cout << "Median = " << medianFinder.findMedian() << endl;
-
     return 0;
 }
