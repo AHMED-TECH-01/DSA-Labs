@@ -3,7 +3,6 @@ using namespace std;
 int main()
 {
     int rows, cols;
-
     cout << "Enter number of rows: ";
     cin >> rows;
 
@@ -31,8 +30,7 @@ int main()
             k++;
         }
     }
-
-    cout << "\n1D Array in Column Major Order:\n";
+    cout << "\nArray:\n";
 
     for (int i = 0; i < k; i++)
     {
