@@ -1,37 +1,68 @@
 #include <iostream>
-#include <stack>
 using namespace std;
 
-bool isPalindrome(string s)
+class Stack
 {
-    stack<char> st;
+private:
+    char arr[100];
+    int top;
 
-    for (int i = 0; i < s.length(); i++)
+public:
+    Stack()
     {
-        st.push(s[i]);
+        top = -1;
     }
 
-    for (int i = 0; i < s.length(); i++)
+    void push(char value)
     {
-        if (s[i] != st.top())
+        arr[++top] = value;
+    }
+
+    void pop()
+    {
+        top--;
+    }
+
+    char peek()
+    {
+        return arr[top];
+    }
+
+    bool empty()
+    {
+        return top == -1;
+    }
+
+    bool palindrome(string s)
+    {
+        for (int i = 0; i < s.length(); i++)
         {
-            return false;
+            push(s[i]);
         }
 
-        st.pop();
-    }
+        for (int i = 0; i < s.length(); i++)
+        {
+            if (s[i] != peek())
+            {
+                return false;
+            }
 
-    return true;
-}
+            pop();
+        }
+
+        return true;
+    }
+};
 
 int main()
 {
+    Stack st;
     string s;
 
     cout << "Enter string: ";
     cin >> s;
 
-    if (isPalindrome(s))
+    if (st.palindrome(s))
         cout << "Palindrome";
     else
         cout << "Not Palindrome";
