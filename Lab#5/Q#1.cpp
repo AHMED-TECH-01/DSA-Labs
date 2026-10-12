@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <stdexcept>
 using namespace std;
@@ -86,7 +85,21 @@ public:
 
         delete temp;
     }
+    T getFront() {
+    if (front == nullptr) {
+        throw underflow_error("Deque is empty");
+    }
 
+    return front->data;
+}
+
+T getRear() {
+    if (rear == nullptr) {
+        throw underflow_error("Deque is empty");
+    }
+
+    return rear->data;
+}
     void display() {
         Node<T>* temp = front;
 
